@@ -42,15 +42,27 @@ export default function Header() {
               About
             </Link>
             <SignedIn>
+              <Link
+                href="/blog"
+                className={`${
+                  pathname === "/blog"
+                    ? "border-b-purple-700 text-purple-700"
+                    : "border-b-transparent text-white"
+                } border-b-4 pb-1`}
+              >
+                Blogs
+              </Link>
+            </SignedIn>
+            <SignedIn>
               <UserButton />
             </SignedIn>
             <SignedOut>
               <SignInButton
                 className={`${
-                pathname === "/sign-in"
-                  ? "border-b-purple-700 text-purple-700"
-                  : "border-b-transparent text-white"
-              } border-b-4 pb-1`}
+                  pathname === "/sign-in"
+                    ? "border-b-purple-700 text-purple-700"
+                    : "border-b-transparent text-white"
+                } border-b-4 pb-1`}
               />
             </SignedOut>
           </ul>
