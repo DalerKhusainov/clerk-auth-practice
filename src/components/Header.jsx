@@ -1,7 +1,11 @@
+"use client";
 import Link from "next/link";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const pathname = usePathname();
+
   return (
     <header className="shadow-lg bg-gradient-to-r from-blue-300 to-purple-400">
       <div className="flex items-center justify-between max-w-6xl p-3 mx-auto">
@@ -16,14 +20,38 @@ export default function Header() {
         </Link>
         {/* add a navigation menu */}
         <nav>
-          <ul className="flex gap-4">
-            <Link href="/">Home</Link>
-            <Link href="/about">About</Link>
+          <ul className="flex gap-7">
+            <Link
+              href="/"
+              className={`${
+                pathname === "/"
+                  ? "border-b-purple-700 text-purple-700"
+                  : "border-b-transparent text-white"
+              } border-b-4 pb-1`}
+            >
+              Home
+            </Link>
+            <Link
+              href="/about"
+              className={`${
+                pathname === "/about"
+                  ? "border-b-purple-700 text-purple-700"
+                  : "border-b-transparent text-white"
+              } border-b-4 pb-1`}
+            >
+              About
+            </Link>
             <SignedIn>
               <UserButton />
             </SignedIn>
             <SignedOut>
-              <SignInButton />
+              <SignInButton
+                className={`${
+                pathname === "/sign-in"
+                  ? "border-b-purple-700 text-purple-700"
+                  : "border-b-transparent text-white"
+              } border-b-4 pb-1`}
+              />
             </SignedOut>
           </ul>
         </nav>
