@@ -17,6 +17,7 @@ export async function connectDb() {
       useUnifiedTopology: true,
     });
     console.log("MongoDB connected");
+    initialized = true;
   } catch (error) {
     console.error("MongoDB connection error: ", error);
   }
