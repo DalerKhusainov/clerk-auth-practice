@@ -16,7 +16,7 @@ export async function createOrUpdateUser(
       { clerkId: id },
       {
         $set: {
-          firstName: first_name,
+          firstname: first_name,
           lastname: last_name,
           avatar: image_url,
           email: email_addresses[0].email_address,
