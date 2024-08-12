@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// let initialized = false;
 let initialized = false;
 
 export async function connectDb() {
